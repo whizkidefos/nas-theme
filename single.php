@@ -16,10 +16,8 @@
                 <time itemprop="datePublished" datetime="<?php the_date('c'); ?>"><?php echo get_the_date(); ?></time>
                 <span class="nas-meta-sep">·</span>
                 <span><?php echo nas_reading_time(); ?> min read</span>
-                <?php if ( get_the_author() ): ?>
                 <span class="nas-meta-sep">·</span>
-                <span itemprop="author"><?php the_author(); ?></span>
-                <?php endif; ?>
+                <span class="nas-post-editorial"><?php echo nas_get_svg_skull(14,'#FFDD00'); ?> The Editorial Team</span>
             </div>
         </div>
     </div>
