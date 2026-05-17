@@ -1,5 +1,5 @@
 /**
- * NAS Chatbot — The Seatiger
+ * NAS Chatbot — The Buksaylor
  * Local AI chat widget with AJAX backend
  */
 

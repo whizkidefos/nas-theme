@@ -140,7 +140,7 @@ get_header();
         <div class="nas-structure-grid">
             <div class="nas-structure-level nas-structure-top">
                 <div class="nas-structure-badge">Supreme</div>
-                <h3>The Seatiger</h3>
+                <h3>The NAS Capoon</h3>
                 <p>National Capoon (President) — the supreme head of the association, leading from the National Deck.</p>
             </div>
             <div class="nas-structure-connector"></div>

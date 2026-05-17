@@ -154,7 +154,7 @@
             <div class="nas-chatbot-header-info">
                 <div class="nas-chatbot-avatar"><?php echo nas_get_svg_skull(24,'#FFDD00'); ?></div>
                 <div>
-                    <div class="nas-chatbot-name">The Seatiger</div>
+                    <div class="nas-chatbot-name">The Buksaylor</div>
                     <div class="nas-chatbot-status">
                         <span class="nas-chatbot-dot"></span> NAS AI Assistant
                     </div>
@@ -169,7 +169,7 @@
             <div class="nas-chatbot-msg nas-msg-bot">
                 <div class="nas-chatbot-msg-avatar"><?php echo nas_get_svg_skull(18,'#FFDD00'); ?></div>
                 <div class="nas-chatbot-bubble">
-                    Ahoy! I'm <strong>The Seatiger</strong>, the NAS virtual assistant. Ask me anything about the National Association of Seadogs — our history, how to join, our decks worldwide, or our projects. ⚓
+                    Ahoy! I'm <strong>The Buksaylor</strong>, the NAS virtual assistant. Ask me anything about the National Association of Seadogs — our history, how to join, our decks worldwide, or our projects. ⚓
                 </div>
             </div>
         </div>
