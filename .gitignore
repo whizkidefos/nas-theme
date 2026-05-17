@@ -1,0 +1,110 @@
+# NAS WordPress Theme — .gitignore
+
+# ============================================================
+# WordPress core (theme is installed inside WP — ignore WP itself)
+# ============================================================
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/xmlrpc.php
+/index.php
+!/nas-theme/index.php
+
+# WordPress uploads and generated content
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/backup-db/
+/wp-content/backups/
+/wp-content/blogs.dir/
+/wp-content/cache/
+/wp-content/advanced-cache.php
+/wp-content/db.php
+/wp-content/object-cache.php
+
+# ============================================================
+# Environment & Config
+# ============================================================
+wp-config.php
+wp-config-local.php
+.env
+.env.*
+!.env.example
+
+# ============================================================
+# Node / NPM (if using build tools in future)
+# ============================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+package-lock.json
+yarn.lock
+
+# ============================================================
+# Build output (if using Tailwind CLI / Vite / webpack)
+# ============================================================
+/assets/css/main.min.css
+/assets/js/main.min.js
+/assets/js/chatbot.min.js
+dist/
+build/
+
+# ============================================================
+# OS & Editor junk
+# ============================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.sass-cache/
+*.sublime-project
+*.sublime-workspace
+
+# ============================================================
+# PHP / Composer
+# ============================================================
+vendor/
+composer.phar
+/composer.lock
+
+# ============================================================
+# Logs & temp files
+# ============================================================
+*.log
+error_log
+debug.log
+php_errorlog
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# ============================================================
+# ZIP / Archives (don't commit deployment packages)
+# ============================================================
+*.zip
+*.tar
+*.tar.gz
+*.rar
+!nas-theme.zip
+
+# ============================================================
+# Sensitive / deployment files
+# ============================================================
+.htaccess
+.htpasswd
+robots.txt
+sitemap.xml
+sitemap*.xml
