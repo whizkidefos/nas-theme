@@ -10,6 +10,14 @@ define( 'NAS_THEME_VERSION', '1.0.0' );
 define( 'NAS_THEME_DIR', get_template_directory() );
 define( 'NAS_THEME_URI', get_template_directory_uri() );
 
+function nas_asset_version( $relative_path ) {
+    $file_path = NAS_THEME_DIR . '/' . ltrim( $relative_path, '/' );
+    if ( file_exists( $file_path ) ) {
+        return (string) filemtime( $file_path );
+    }
+    return NAS_THEME_VERSION;
+}
+
 // ============================================================
 // THEME SETUP
 // ============================================================
@@ -47,14 +55,36 @@ function nas_enqueue_assets() {
     );
 
     // Theme base stylesheet (style.css — CSS variables, resets, base styles)
-    wp_enqueue_style( 'nas-base', get_stylesheet_uri(), ['nas-fonts'], NAS_THEME_VERSION );
+    wp_enqueue_style(
+        'nas-base',
+        get_stylesheet_uri(),
+        ['nas-fonts'],
+        nas_asset_version( 'style.css' )
+    );
 
     // Main component stylesheet
-    wp_enqueue_style( 'nas-main', NAS_THEME_URI . '/assets/css/main.css', ['nas-base'], NAS_THEME_VERSION );
+    wp_enqueue_style(
+        'nas-main',
+        NAS_THEME_URI . '/assets/css/main.css',
+        ['nas-base'],
+        nas_asset_version( 'assets/css/main.css' )
+    );
 
     // Main JS
-    wp_enqueue_script( 'nas-main', NAS_THEME_URI . '/assets/js/main.js', [], NAS_THEME_VERSION, true );
-    wp_enqueue_script( 'nas-chatbot', NAS_THEME_URI . '/assets/js/chatbot.js', ['nas-main'], NAS_THEME_VERSION, true );
+    wp_enqueue_script(
+        'nas-main',
+        NAS_THEME_URI . '/assets/js/main.js',
+        [],
+        nas_asset_version( 'assets/js/main.js' ),
+        true
+    );
+    wp_enqueue_script(
+        'nas-chatbot',
+        NAS_THEME_URI . '/assets/js/chatbot.js',
+        ['nas-main'],
+        nas_asset_version( 'assets/js/chatbot.js' ),
+        true
+    );
 
     wp_localize_script( 'nas-main', 'NAS', [
         'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
@@ -67,14 +97,51 @@ add_action( 'wp_enqueue_scripts', 'nas_enqueue_assets' );
 
 // Admin styles
 function nas_admin_assets( $hook ) {
-    wp_enqueue_style( 'nas-admin', NAS_THEME_URI . '/assets/css/admin.css', [], NAS_THEME_VERSION );
-    wp_enqueue_script( 'nas-admin', NAS_THEME_URI . '/assets/js/admin.js', ['jquery'], NAS_THEME_VERSION, true );
+    wp_enqueue_style(
+        'nas-admin',
+        NAS_THEME_URI . '/assets/css/admin.css',
+        [],
+        nas_asset_version( 'assets/css/admin.css' )
+    );
+    wp_enqueue_script(
+        'nas-admin',
+        NAS_THEME_URI . '/assets/js/admin.js',
+        ['jquery'],
+        nas_asset_version( 'assets/js/admin.js' ),
+        true
+    );
     wp_localize_script( 'nas-admin', 'NAS_Admin', [
         'ajaxUrl' => admin_url( 'admin-ajax.php' ),
         'nonce'   => wp_create_nonce( 'nas_admin_nonce' ),
     ]);
 }
 add_action( 'admin_enqueue_scripts', 'nas_admin_assets' );
+
+// Login screen styles
+function nas_login_assets() {
+    wp_enqueue_style( 'nas-fonts',
+        'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow+Condensed:wght@300;400;600;700&display=swap',
+        [], null
+    );
+
+    wp_enqueue_style(
+        'nas-login',
+        NAS_THEME_URI . '/assets/css/login.css',
+        [ 'nas-fonts' ],
+        nas_asset_version( 'assets/css/login.css' )
+    );
+}
+add_action( 'login_enqueue_scripts', 'nas_login_assets' );
+
+function nas_login_logo_url() {
+    return home_url( '/' );
+}
+add_filter( 'login_headerurl', 'nas_login_logo_url' );
+
+function nas_login_logo_title() {
+    return get_bloginfo( 'name' ) . ' - National Association of Seadogs';
+}
+add_filter( 'login_headertext', 'nas_login_logo_title' );
 
 // ============================================================
 // CUSTOM POST TYPES

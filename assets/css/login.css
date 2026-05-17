@@ -1,0 +1,148 @@
+/* NAS Theme - WordPress Login */
+:root {
+    --nas-red: #96050d;
+    --nas-red-dark: #6b0309;
+    --nas-gold: #ffdd00;
+    --nas-black: #0a0a0a;
+    --nas-dark: #131313;
+    --nas-dark-2: #1c1c1c;
+    --nas-white: #f8f6f0;
+    --nas-gray: #bcbcbc;
+}
+
+body.login {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(150, 5, 13, 0.32) 0%, transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(255, 221, 0, 0.12) 0%, transparent 40%),
+        linear-gradient(135deg, #090909 0%, #121212 50%, #1a1a1a 100%);
+    color: var(--nas-white);
+    font-family: 'Crimson Pro', serif;
+}
+
+body.login::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(transparent 60%, rgba(150, 5, 13, 0.15));
+}
+
+.login h1 a {
+    background-image: url('../images/NAS_Skull_Crossed.png');
+    background-size: contain;
+    width: 92px;
+    height: 92px;
+    margin-bottom: 18px;
+}
+
+#login {
+    width: 380px;
+    max-width: 92vw;
+    padding: 4.5% 0 0;
+}
+
+.login form {
+    background: linear-gradient(180deg, var(--nas-dark) 0%, var(--nas-dark-2) 100%);
+    border: 1px solid rgba(255, 221, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.45);
+    padding: 28px 24px 22px;
+}
+
+.login label {
+    color: var(--nas-gray);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.login form .input,
+.login input[type='text'],
+.login input[type='password'] {
+    background: #111;
+    color: var(--nas-white);
+    border: 1px solid rgba(255, 221, 0, 0.18);
+    border-radius: 6px;
+    box-shadow: none;
+    font-family: 'Crimson Pro', serif;
+    font-size: 16px;
+}
+
+.login form .input:focus,
+.login input[type='text']:focus,
+.login input[type='password']:focus {
+    border-color: rgba(255, 221, 0, 0.6);
+    box-shadow: 0 0 0 1px rgba(255, 221, 0, 0.35);
+}
+
+.login .button-primary {
+    background: linear-gradient(180deg, var(--nas-red) 0%, var(--nas-red-dark) 100%);
+    border: 1px solid rgba(255, 221, 0, 0.3);
+    border-radius: 6px;
+    box-shadow: none;
+    color: var(--nas-gold);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 0 18px;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.login .button-primary:hover,
+.login .button-primary:focus {
+    background: linear-gradient(180deg, #b50711 0%, #7b040b 100%);
+    border-color: rgba(255, 221, 0, 0.6);
+    color: var(--nas-gold);
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.login .forgetmenot,
+.login #nav,
+.login #backtoblog,
+.login .privacy-policy-page-link {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.login #nav,
+.login #backtoblog,
+.login .privacy-policy-page-link,
+.login #nav a,
+.login #backtoblog a,
+.login .privacy-policy-page-link a {
+    color: rgba(248, 246, 240, 0.72);
+}
+
+.login #nav a:hover,
+.login #backtoblog a:hover,
+.login .privacy-policy-page-link a:hover {
+    color: var(--nas-gold);
+}
+
+.login .message,
+.login .notice,
+.login #login_error,
+.login .success {
+    background: rgba(10, 10, 10, 0.9);
+    border-left-color: var(--nas-gold);
+    color: var(--nas-white);
+    border-radius: 6px;
+}
+
+.login .language-switcher {
+    filter: saturate(0.8) contrast(1.05);
+}
+
+@media (max-width: 480px) {
+    #login {
+        padding-top: 10%;
+    }
+
+    .login form {
+        padding: 22px 18px 18px;
+    }
+}
