@@ -33,11 +33,16 @@
 
                 <!-- Brand -->
                 <div class="nas-footer-brand">
-                    <?php echo nas_get_svg_skull(80, '#FFDD00'); ?>
+                    <?php
+                    $nas_footer_logo_path = NAS_THEME_DIR . '/assets/images/nas-logo-centered.png';
+                    if ( file_exists( $nas_footer_logo_path ) ):
+                    ?>
+                        <img src="<?php echo esc_url( NAS_THEME_URI . '/assets/images/nas-logo-centered.png' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="nas-footer-brand-logo" loading="lazy" decoding="async">
+                    <?php else: ?>
+                        <?php echo nas_get_svg_skull(80, '#FFDD00'); ?>
+                    <?php endif; ?>
                     <div class="nas-footer-brand-text">
-                        <div class="nas-footer-brand-name">National Association of Seadogs</div>
-                        <div class="nas-footer-brand-sub">Pyrates Confraternity</div>
-                        <div class="nas-footer-brand-motto">Non Nobis Solum</div>
+                        <!-- <div class="nas-footer-brand-motto text-center">Non Nobis Solum</div> -->
                     </div>
                     <p class="nas-footer-brand-desc">Since 1952, fighting for a just and egalitarian society. Wherever we find ourselves, we are committed to being the first when the community needs a hand.</p>
                     <div class="nas-footer-social">

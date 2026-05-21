@@ -50,6 +50,13 @@
     height: 72px;
 }
 .nas-logo { text-decoration: none; flex-shrink: 0; }
+.nas-logo-img {
+    display: block;
+    height: 44px;
+    width: auto;
+    max-width: 280px;
+    object-fit: contain;
+}
 .nas-logo-text { display: flex; align-items: center; gap: 12px; }
 .nas-logo-mark svg { display: block; }
 .nas-logo-words { display: flex; flex-direction: column; line-height: 1; }
@@ -411,6 +418,13 @@
 
 .nas-footer-main { padding: 80px 0 48px; }
 .nas-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+.nas-footer-brand-logo {
+    display: block;
+    width: auto;
+    height: 86px;
+    max-width: 260px;
+    object-fit: contain;
+}
 .nas-footer-brand-name { font-family: var(--font-display); font-size: 1.1rem; color: var(--nas-gold); margin-top: 14px; }
 .nas-footer-brand-sub { font-family: var(--font-ui); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--nas-gray); margin-top: 2px; }
 .nas-footer-brand-motto { font-family: var(--font-body); font-style: italic; font-size: 0.9rem; color: var(--nas-red); margin-top: 4px; }
@@ -441,6 +455,12 @@
 .nas-footer-copy a:hover { color: var(--nas-gold); }
 .nas-footer-sep { margin: 0 8px; opacity: 0.4; }
 .nas-footer-bottom-logo { display: flex; align-items: center; gap: 8px; font-family: var(--font-ui); font-size: 10px; letter-spacing: 0.12em; color: var(--nas-gray); opacity: 0.4; }
+.nas-footer-bottom-logo-img {
+    display: block;
+    width: auto;
+    height: 26px;
+    object-fit: contain;
+}
 
 /* ============================================================
    CHATBOT WIDGET
@@ -955,8 +975,17 @@
     .nas-structure-row { grid-template-columns: 1fr; gap: 10px; }
 }
 @media (max-width: 768px) {
-    .nas-header-inner { height: 60px; }
+    .nas-header-inner {
+        height: 60px;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .nas-logo-img {
+        height: 36px;
+        max-width: 220px;
+    }
     .nas-nav { display: none; }
+    .nas-header-actions { margin-left: auto; }
     .nas-hamburger { display: flex; }
     .nas-header-social { display: none; }
     .nas-hero { min-height: auto; padding: 80px 0 60px; }
@@ -974,6 +1003,7 @@
     .nas-nl-btn { width: 100%; justify-content: center; }
     .nas-footer-grid { grid-template-columns: 1fr 1fr; }
     .nas-footer-brand { grid-column: 1 / -1; }
+    .nas-footer-brand-logo { height: 76px; max-width: 220px; }
     .nas-footer-bottom-inner { flex-direction: column; gap: 10px; text-align: center; }
     .nas-blog-layout { grid-template-columns: 1fr; }
     .nas-blog-sidebar { display: none; }
@@ -995,7 +1025,13 @@
 @media (max-width: 480px) {
     .container { padding: 0 16px; }
     .container-wide { padding: 0 16px; }
+    .nas-logo-img {
+        height: 32px;
+        max-width: 190px;
+    }
     .nas-footer-grid { grid-template-columns: 1fr; }
+    .nas-footer-brand-logo { height: 66px; max-width: 190px; }
+    .nas-footer-bottom-logo-img { height: 22px; }
     .nas-chatbot-wrapper { bottom: 16px; right: 16px; }
     .nas-chatbot-window { width: calc(100vw - 32px); right: -16px; }
     .nas-quiz-score { font-size: 3rem; }

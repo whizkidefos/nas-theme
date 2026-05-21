@@ -24,9 +24,12 @@
 
         <!-- Logo -->
         <a href="<?php echo home_url('/'); ?>" class="nas-logo" aria-label="NAS Home">
-            <?php if ( has_custom_logo() ):
-                the_custom_logo();
-            else: ?>
+            <?php
+            $nas_logo_path = NAS_THEME_DIR . '/assets/images/nas-logo-white-rect.png';
+            if ( file_exists( $nas_logo_path ) ):
+            ?>
+                <img src="<?php echo esc_url( NAS_THEME_URI . '/assets/images/nas-logo-white-rect.png' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="nas-logo-img" decoding="async" loading="eager">
+            <?php else: ?>
                 <div class="nas-logo-text">
                     <div class="nas-logo-mark"><?php echo nas_get_svg_skull(56, '#FFDD00'); ?></div>
                     <div class="nas-logo-words">
